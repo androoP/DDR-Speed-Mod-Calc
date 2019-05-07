@@ -1,0 +1,78 @@
+<html>
+<head>
+
+<script type = "text/javascript" src = "js/jquery-3.4.1.min.js" ></script>
+<script type = "text/javascript" src = "js/code-min.js" ></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=high-dpi, user-scalable=0" />
+<!-- COMMON TAGS -->
+<meta charset="utf-8">
+<title>DDR Speed Calculator</title>
+<!-- Search Engine -->
+<meta name="description" content="Step 1: Insert max read speed. Step 2: Enter song BPM. Step 3: You're done.">
+<meta name="image" content="favicon-96x96.png">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="DDR Speed Calculator">
+<meta itemprop="description" content="Step 1: Insert max read speed. Step 2: Enter song BPM. Step 3: You're done.">
+<meta itemprop="image" content="favicon-96x96.png">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="DDR Speed Calculator">
+<meta name="og:description" content="Step 1: Insert max read speed. Step 2: Enter song BPM. Step 3: You're done.">
+<meta name="og:image" content="favicon-96x96.png">
+<meta name="og:url" content="http://ddr.kissr.com/">
+<meta name="og:site_name" content="DDR Speed Calculator">
+<meta name="og:type" content="website">
+<link rel="stylesheet" href="css/styles.css">
+<meta name="theme-color" content="#222">
+
+</head>
+
+<body>
+<div id="calculator">
+<div id="thanks">Thanks</div>
+<div id="noReadSet">
+<div id="welcome2"><h1>Set MAX BPM Read Speed</h1></div>
+<div id="bpmSet">
+<div id="welcome3">
+<form id="maxReadEntry" action="javascript:speedGet()" >
+<input type="number" id="maxBpmEntry" placeholder="1-999" max="999" onfocus="this.value=''">
+<input type="submit" value="Set">
+</form>
+</div>
+</div>
+</div> 
+<div id="yesReadSet">
+<form id="songBpmEntry" action="javascript:calculateSpeed()" >
+<input type="number" id="bpmEntry" max="999" placeholder="Song BPM" onfocus="this.value=''">
+<input type="submit" value="Set">
+</form>
+<h2 id="speedModHead" class="numberheader">Use this speed mod: </h2>
+<h1 id="speedMod" class="numbersBlank">x-.--</h1>
+<h3 id="actualBpmHead" class="numberheader">Actual Scroll Speed: </h3>
+<h2 id="actualBpm" class="numbersBlank">--- BPM</h2>
+<h4 id="currentRead" >.</h4>
+<button id="reset" type="button" onclick="javascript:resetDivs()">Reset MAX</button>
+</div>
+
+<div id="credits">Made by <a target="blank_" href="https://github.com/androoP">Androo</a></div>
+
+</body>
+
+</html>
