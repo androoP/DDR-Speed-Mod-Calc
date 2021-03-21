@@ -7,7 +7,7 @@ var hasTwoFive;
 var speedSubs;
 var speedDec;
 var inputBpm;
-
+//This is a comment! Did Github remove all of my comments? D:
 $(document).ready(function(){
     $( "#thanks" ).hide();
     $( "#yesReadSet" ).hide();
