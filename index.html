@@ -2,7 +2,7 @@
 <head>
 
 <script type = "text/javascript" src = "js/jquery-3.4.1.min.js" ></script>
-<script type = "text/javascript" src = "js/code-min.js" ></script>
+<script type = "text/javascript" src = "js/code.js" ></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
@@ -59,14 +59,16 @@
 </div>
 </div> 
 <div id="yesReadSet">
-<form id="songBpmEntry" action="javascript:calculateSpeed()" >
+<form id="songBpmEntry" action="javascript:getSpeedMod()" >
 <input type="number" id="bpmEntry" max="999" placeholder="Song BPM" onfocus="this.value=''">
 <input type="submit" value="Set">
 </form>
-<h2 id="speedModHead" class="numberheader">Use this speed mod: </h2>
+<h2 id="speedModHead" class="numberheader">Safe speed mod: </h2>
 <h1 id="speedMod" class="numbersBlank">x-.--</h1>
 <h3 id="actualBpmHead" class="numberheader">Actual Scroll Speed: </h3>
 <h2 id="actualBpm" class="numbersBlank">--- BPM</h2>
+<h2 id="riskyHead" class="riskynumberheader">Risky: </h2>
+<h1 id="riskyMod" class="riskynumbersBlank">x-.--</h1>
 <h4 id="currentRead" >.</h4>
 <button id="reset" type="button" onclick="javascript:resetDivs()">Reset MAX</button>
 </div>

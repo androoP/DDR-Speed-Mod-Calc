@@ -70,9 +70,23 @@ button {
   margin: -25px 0 0 0;
   font-weight: bolder;
 }
-
 .numbersBlank {
   color:#505050;
+  margin: -25px 0 0 0;
+  font-weight: bolder;
+}
+.riskynumberheader {
+  color:#e0115f;
+  font-weight: lighter;
+}
+.riskynumbers {
+  color:#e0115f;
+  margin: -25px 0 0 0;
+  font-weight: bolder;
+  font-size: 14;
+}
+.riskynumbersBlank {
+  color:#e0115f;
   margin: -25px 0 0 0;
   font-weight: bolder;
 }
