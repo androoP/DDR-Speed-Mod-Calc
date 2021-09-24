@@ -1,15 +1,10 @@
-footer
-{
-width: 95%;
-  position: absolute;
-  bottom: 0px; 
-}
+
 html,body {
 background-color: #222;
 font-family: 'Roboto', sans-serif;
 color: #fff;
 text-align: center;
-font-size: 25;
+
 margin-top: 20px;
 }
 
@@ -22,10 +17,15 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+h4 {
+  font-weight: lighter;
+}
+
 input {
   height: 90;
   max-width: 75%;
-  font-size: 40px;
+  font-size: 35px;
   background-color: #333;
   border: 0;
   border-radius: 20;
@@ -105,11 +105,12 @@ button {
 #reset {
 height: 50;
 font-size: 25px;
-margin: 0 0 0 0;
+margin: -15 0 0 0;
 }
 
 .bottomReset
 {
+  margin: 100px 0 0 0;
    position: relative;
 
   
@@ -119,7 +120,7 @@ margin: 0 0 0 0;
 #credits{
 font-size: 12;
 text-align: right;
-margin: 0 25px 0 0;
+margin: 20px 5px 0 0;
 }
 
 @viewport
