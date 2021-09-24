@@ -66,14 +66,26 @@ $( "#bpmEntry" ).keyup(function() {
     getSpeedMod();
     } else {
         //We don't change the divs
+        document.getElementById("numHead").innerHTML = "Safe: --- bpm";
         document.getElementById("speedMod").innerHTML = "x-.--";
+        document.getElementById("riskyHead").innerHTML = "Risky: --- bpm";
         document.getElementById("riskyMod").innerHTML = "x-.--";
+                $("#speedMod").removeClass();
+        $("#speedMod").addClass("numbersBlank");
+        $("#riskyMod").removeClass();
+        $("#riskyMod").addClass("riskynumbersBlank");
     }
     //When we click on our BPM entry, we clear our divs and entry
     $( "#bpmEntry" ).focus(function() {
+        document.getElementById("numHead").innerHTML = "Safe: --- bpm";
         document.getElementById("speedMod").innerHTML = "x-.--";
+        document.getElementById("riskyHead").innerHTML = "Risky: --- bpm";
         document.getElementById("riskyMod").innerHTML = "x-.--";
         document.getElementById("bpmEntry").value = "";
+        $("#speedMod").removeClass();
+        $("#speedMod").addClass("numbersBlank");
+        $("#riskyMod").removeClass();
+        $("#riskyMod").addClass("riskynumbersBlank");
 });
 
 });
@@ -92,12 +104,12 @@ function setUpDisplay(){
      $("#thanks").fadeIn(1000);
      $("#thanks").fadeOut(500);
      $("#yesReadSet").delay( 1500 ).fadeIn(500);
-     document.getElementById("currentRead").innerHTML = "Your MAX speed is: " + maxSpeed + " bpm";
+     document.getElementById("currentRead").innerHTML = "MAX speed: " + maxSpeed + " bpm";
 }
 //We hide the first screen and jump straight to our song bpm entry
 function showNext() {
     $("#noReadSet").hide();
-    document.getElementById("currentRead").innerHTML = "Your MAX speed is: " + maxSpeed + " bpm";
+    document.getElementById("currentRead").innerHTML = "MAX speed: " + maxSpeed + " bpm";
     $("#yesReadSet").show();
 }
 //We pull the speed entered in our max speed and set a cookie
@@ -127,6 +139,8 @@ document.getElementById("bpmEntry").value = "";
 document.getElementById("riskyMod").innerHTML = "x-.--";
 $("#speedMod").removeClass();
 $("#speedMod").addClass("numbersBlank");
+$("#riskyMod").removeClass();
+$("#riskyMod").addClass("riskynumbersBlank");
 }
 
 //Our initial screen animation if no cookies are detected
@@ -210,18 +224,25 @@ function calculateScroll(safeExists) {
 //We fill in the info to the appropriate divs, based on the functions
 function updateValues(safeExists){
 if(safeExists == true){
-    document.getElementById("speedMod").innerHTML =  "x"+safeMod+" / "+safeSpeed+" bpm";
+   // document.getElementById("speedMod").innerHTML =  "x"+safeMod+" / "+safeSpeed+" bpm";
+   document.getElementById("numHead").innerHTML =  "Safe: "+safeSpeed+" bpm";
+   document.getElementById("speedMod").innerHTML =  "x"+safeMod;
 } else if (safeExists == false) {
     //safeExists is false! No safe speed mods exist! We set our div to 'UNSAFE'
+    document.getElementById("riskyMod").innerHTML = "x"+riskyMod;
    document.getElementById("speedMod").innerHTML =  "UNSAFE"; 
 }
 if (safeMod == riskyMod) {
     document.getElementById("riskyMod").innerHTML = "MAX Risk Achieved";
 } else {
-    document.getElementById("riskyMod").innerHTML = "x"+riskyMod+" / "+riskySpeed+" bpm";
+   // document.getElementById("riskyMod").innerHTML = "x"+riskyMod+" / "+riskySpeed+" bpm";
+   document.getElementById("riskyHead").innerHTML =  "Risky: "+riskySpeed+" bpm";
+   document.getElementById("riskyMod").innerHTML = "x"+riskyMod;
 }
-$("#speedMod").removeClass();
 $("#actualBpm").removeClass();
-$("#speedMod").addClass("numbers");
 $("#actualBpm").addClass("numbers");
+$("#speedMod").removeClass();
+$("#speedMod").addClass("numbers");
+$("#riskyMod").removeClass();
+$("#riskyMod").addClass("riskynumbers");
 }
