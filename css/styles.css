@@ -1,11 +1,8 @@
 footer
 {
-  width: 100%;
+width: 95%;
   position: absolute;
   bottom: 0px; 
- margin: auto;
- text-align:center;
- color: #fff;
 }
 html,body {
 background-color: #222;
@@ -14,7 +11,6 @@ color: #fff;
 text-align: center;
 font-size: 25;
 margin-top: 20px;
-height: 100%;
 }
 
 a {
@@ -115,8 +111,6 @@ margin: 0 0 0 0;
 .bottomReset
 {
    position: relative;
-     min-height:100%;
-  width: 100%;
 
   
 }
