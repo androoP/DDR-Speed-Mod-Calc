@@ -36,7 +36,7 @@
 <meta name="og:title" content="DDR Speed Calculator">
 <meta name="og:description" content="Step 1: Insert max read speed. Step 2: Enter song BPM. Step 3: You're done.">
 <meta name="og:image" content="favicon-96x96.png">
-<meta name="og:url" content="http://ddr.kissr.com/">
+<meta name="og:url" content="https://androop.github.io/DDR-Speed-Mod-Calc/">
 <meta name="og:site_name" content="DDR Speed Calculator">
 <meta name="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
@@ -45,8 +45,10 @@
 </head>
 
 <body>
-<div id="calculator">
+<div id="container">
+	
 <div id="thanks">Thanks</div>
+<div id="calculator">
 <div id="noReadSet">
 <div id="welcome2"><h1>Set MAX BPM Read Speed</h1></div>
 <div id="bpmSet">
@@ -64,26 +66,33 @@
 <form id="songBpmEntry" action="javascript:getSpeedMod()" >
 <input type="number" id="bpmEntry" max="999" placeholder="Song BPM">
 </form>
+
+<div id="safe">
 <h2 id="numHead" class="numberheader">Safe: --- bpm</h2>
 <h1 id="speedMod" class="numbersBlank">x-.--</h1>
+</div>
 <!-- 
 
 <h1 id="bpm" class="numbersBlank">x-.--</h1>
 <h3 id="actualBpmHead" class="numberheader">Actual Scroll Speed: </h3>
 <h3 id="actualBpm" class="numbersBlank">--- BPM</h3>
 -->
+<div id="risky">
 <h2 id="riskyHead" class="riskynumberheader">Risky: --- bpm</h2>
 <h1 id="riskyMod" class="riskynumbersBlank">x-.--</h1>
-<footer>
+</div>
+
 <div id="bottomReset" class="bottomReset">
-<h4 id="currentRead">.</h4>
+<h4 id="currentRead"></h4>
 <button id="reset" type="button" onclick="javascript:resetDivs()">Reset MAX</button>
 <!-- 
 <div id="credits">Made by <a target="blank_" href="https://github.com/androoP">Androo</a></div>
 -->
 </div>
-</footer>
 </div>
+
+</div>
+
 </div>
 </body>
 

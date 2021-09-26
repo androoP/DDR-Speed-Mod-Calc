@@ -70,7 +70,7 @@ $( "#bpmEntry" ).keyup(function() {
         document.getElementById("speedMod").innerHTML = "x-.--";
         document.getElementById("riskyHead").innerHTML = "Risky: --- bpm";
         document.getElementById("riskyMod").innerHTML = "x-.--";
-                $("#speedMod").removeClass();
+        $("#speedMod").removeClass();
         $("#speedMod").addClass("numbersBlank");
         $("#riskyMod").removeClass();
         $("#riskyMod").addClass("riskynumbersBlank");
@@ -103,7 +103,12 @@ function setUpDisplay(){
     $("#thanks").text(thanks[random]);
      $("#thanks").fadeIn(1000);
      $("#thanks").fadeOut(500);
+             document.getElementById("numHead").innerHTML = "Safe: --- bpm";
+        document.getElementById("speedMod").innerHTML = "x-.--";
+        document.getElementById("riskyHead").innerHTML = "Risky: --- bpm";
+        document.getElementById("riskyMod").innerHTML = "x-.--";
      $("#yesReadSet").delay( 1500 ).fadeIn(500);
+     $("#bottomReset").delay( 1500 ).fadeIn(500);
      document.getElementById("currentRead").innerHTML = "MAX speed: " + maxSpeed + " bpm";
 }
 //We hide the first screen and jump straight to our song bpm entry
@@ -130,6 +135,7 @@ function resetDivs(){
     $("#yesReadSet").fadeOut(500);
     setTimeout(removeNumbers, 500);
     $("#noReadSet").delay(500).fadeIn(500);
+    $("#bottomReset").fadeOut(500);
     introNoCookie()
 }
 //This clears our numbers for the BPM entry screen
