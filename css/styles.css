@@ -1,21 +1,135 @@
 html,body {
-background-color: #222;
-font-family: 'Roboto', sans-serif;
-color: #fff;
 text-align: center;
 margin: 0; 
 height: 100%;
 overflow: hidden; /* Hide scrollbars */
 }
 
-#container {
-min-height: 100vh;
-position: relative;
+.theme-default {
+  --color-bg: #222;
+  --numbers-blank-color: #505050;
+  --color-button: #e0115f;
+  --color-input: #333;
+  --color-text: #fff;
+  --font-color: #fff;
+  --risky-color: #e0115f;
+  --font-family: 'Roboto', sans-serif;
+  --button-rounding: 0px 0px 0px 0px;
+  --input-rounding: 0px 0px 0px 0px;
+  }
+.theme-trueblack {
+  --color-bg: #000;
+  --color-button: #4a0620;
+  --numbers-blank-color: #303030;
+  --color-input: #111;
+  --color-text: #555;
+  --font-color: #555;
+  --risky-color: #555;
+    --font-family: 'Roboto', sans-serif;
+     --button-rounding: 0px 0px 0px 0px;
+      --input-rounding: 0px 0px 0px 0px;
+  }
+.theme-pinkie {
+  --color-bg: #ff99c8;
+  --color-button: #ff4096;
+  --color-input: #ffcce3;
+  --color-input-text: #ffcce3;
+  --numbers-blank-color: #fff;
+  --color-text: #fff;
+  --font-color: #fff;
+    --font-family: 'Fredoka One', sans-serif;
+     --button-rounding: 20px 20px 20px 20px;
+      --input-rounding: 20px 20px 20px 20px;
+        --text-shadow:
+      -2px -2px 0 #000,  
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000;
+  }
+  }
+.theme-cyberpunk {
+--color-bg: #ea00d9;
+--color-button: #e0115f;
+--color-input: #07122e;
+--color-text: #fff;
+--font-color: #ffffff;
+  --font-family: 'Roboto', sans-serif;
+   --button-rounding: 0px 0px 0px 0px;
+    --input-rounding: 0px 0px 0px 0px;
+  }
+.theme-a20 {
+--color-bg: linear-gradient(#266080, #122d74, #000, #122d74, #266080);
+--color-button: linear-gradient(#41d2de, #0a7bce);
+  --numbers-blank-color: #505050;
+--color-input: #07122e;
+--color-text: #fff;
+--font-color: #ffffff;
+--font-family: 'Play', sans-serif;
+ --connected-button-rounding: 0px 10px 10px 0px;
+ --disconnected-button-rounding: 10px 10px 10px 10px;
+  --connected-input-rounding: 10px 0px 0px 10px;
+  --disconnected-input-rounding: 10px 10px 10px 10px;
+  --text-shadow:
+      -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+  }
+
+.dot {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: hand;
+  border: 3px solid #333;
+   --button-rounding: 0px 0px 0px 0px;
+    --input-rounding: 0px 0px 0px 0px;
 }
 
+.normalText {
+  font-size: 2.1em;
+  text-shadow: var(--text-shadow);
+}
 
+.connectedInput {
+border-radius: var(--connected-input-rounding);
+outline: 1px solid white;
+}
+
+.disconnectedInput {
+border-radius: var(--disconnected-input-rounding);
+outline: 1px solid white;
+}
+
+.connectedSubmit {
+border-radius: var(--connected-button-rounding);
+}
+
+.disconnectedSubmit {
+  border-radius: var(--disconnected-button-rounding);
+}
+
+#container {
+font-family: var(--font-family);
+background: var(--color-bg);
+color: var(--color-text);;
+min-height: 100vh;
+position: relative;
+paint-order: stroke fill;
+text-shadow: var(--text-shadow);
+}
+
+::placeholder {
+  color: var(--numbers-blank-color);
+}
 a {
-  color:#e0115f;
+  color: var(--color-link);
+}
+
+h1 {
+  font-size: 2.1em;
+  text-shadow: var(--text-shadow);
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -32,7 +146,7 @@ input {
   height: 80;
   max-width: 75%;
   font-size: 35px;
-  background-color: #333;
+  background: var(--color-input);;
   border: 0;
   border-radius: 20;
   color: #fff;
@@ -40,21 +154,36 @@ input {
   text-align: center;
   font-weight: bold;
   margin-top: 20px;
+    font-family: var(--font-family);
+
 }
 
 input[type=button], input[type=submit], input[type=reset] {
-  background-color: #e0115f;
+  background: var(--color-button);
   border: none;
   color: white;
   text-decoration: none;
   cursor: hand;
   font-weight: bold;
+  font-family: var(--font-family);
+  text-shadow: var(--text-shadow);
 }
 
 #welcome2{
 padding-top: 20px;
 }
 
+#welcome3{
+  height: 100%;
+}
+
+#themePicker{
+  position: absolute;
+  bottom: 0; 
+  width: 100%;
+  height: 10rem; 
+  margin: 0 0 30px 0;
+}
 
 #thanks{
   position:absolute;
@@ -66,7 +195,8 @@ padding-top: 20px;
 }
 
 button {
-  background-color: #e0115f;
+  background: var(--color-button);
+  text-shadow: var(--text-shadow);
   border: none;
   color: white;
   text-decoration: none;
@@ -90,16 +220,18 @@ button {
   font-size: 50;
 }
 .numbersBlank {
-  color:#505050;
+  color:var(--numbers-blank-color);
   margin: -35px 0 0 0;
   font-weight: bolder;
   font-size: 50;
 }
+
 .riskynumberheader {
   color:#e0115f;
   font-weight: lighter;
   font-size: 35;
 }
+
 .riskynumbers {
   color:#e0115f;
   margin: -30px 0 0 0;
