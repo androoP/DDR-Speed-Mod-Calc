@@ -3,7 +3,10 @@
 
 <script type = "text/javascript" src = "js/jquery-3.6.0.min.js" ></script>
 <script type = "text/javascript" src = "js/code.js" ></script>
+
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 
 <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
@@ -41,30 +44,37 @@
 <meta name="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
 <meta name="theme-color" content="#222">
-
 </head>
-
 <body>
-<div id="container">
-	
+<div id="container">	
 <div id="thanks">Thanks</div>
 <div id="calculator">
 <div id="noReadSet">
-<div id="welcome2"><h1>Set MAX BPM Read Speed</h1></div>
+<div id="welcome2" class="normaltext">Set MAX BPM Read Speed</div>
 <div id="bpmSet">
 <div id="welcome3">
 	<!-- This is where you enter your MAX Read speed -->
 <form id="maxReadEntry" action="javascript:speedGet()" >
-<input type="number" id="maxBpmEntry" placeholder="1-999" max="999" onfocus="this.value=''">
-<input type="submit" value="Set">
+<input class="connectedInput" type="number" id="maxBpmEntry" placeholder="1-999" max="999" onfocus="this.value=''">
+<input class="connectedSubmit" type="submit" value="Set">
 </form>
 </div>
 </div>
-</div> 
+	<!-- Our theme picker div. We make a few dots with some colors picking one will set the color accordingly -->
+<div id="themePicker">
+<span class="dot" style="background-color:#222;" onclick="javascript:setTheme('theme-default')"></span>
+<span class="dot" style="background-color:#000;" onclick="javascript:setTheme('theme-trueblack')"></span>
+<!-- These themes don't really work right now, so let's hide them. D: 
+<span class="dot" style="background-color:#ff99c8;" onclick="javascript:setTheme('theme-pinkie')"></span>
+<span class="dot" style="background-color:#ea00d9;" onclick="javascript:setTheme('theme-cyberpunk')"></span>
+-->
+<span class="dot" style="background-color:#122d74;" onclick="javascript:setTheme('theme-a20')"></span>
+</div>
+</div>  
 <div id="yesReadSet">
 <!-- This is where you enter your BPM -->
 <form id="songBpmEntry" action="javascript:getSpeedMod()" >
-<input type="number" id="bpmEntry" max="999" placeholder="Song BPM">
+<input class="disconnectedInput" type="number" id="bpmEntry" max="999" placeholder="Song BPM">
 </form>
 
 <div id="safe">
@@ -84,7 +94,7 @@
 
 <div id="bottomReset" class="bottomReset">
 <h4 id="currentRead"></h4>
-<button id="reset" type="button" onclick="javascript:resetDivs()">Reset MAX</button>
+<button class="disconnectedSubmit" id="reset" type="button" onclick="javascript:resetDivs()">Reset MAX</button>
 <!-- 
 <div id="credits">Made by <a target="blank_" href="https://github.com/androoP">Androo</a></div>
 -->

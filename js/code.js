@@ -2,6 +2,8 @@
 var maxSpeed;
 //The BPM entered by users
 var songBpm;
+
+
 //The 'risky' speed mod; The first mod that exceeds a user's read speed preferences
 var riskyMod;
 //The 'safe' speed mod; This is an index - 1 of our risky mod.
@@ -40,21 +42,31 @@ var availableSpeedMods =
 8.00
 ];
 
-
-
+//placeholder theme (We set to default, by default).
+var myTheme;
 
 $(document).ready(function(){
-    //We hide our divs
+     //We hide our divs
     $( "#thanks" ).hide();
     $( "#yesReadSet" ).hide();
 //We check our cookies, which save our maximum read speed
-if (checkCookie() === false) {
+
+if (checkThemeCookie() === false) {
+    //If there's no cookie, we set a default
+    myTheme = "theme-default";
+} 
+
+if (checkBpmCookie() === false) {
     //If there's no cookie, we show the no cookie intro
     introNoCookie();
 } else {
-    //Otherwise, we showNext and jump into the bpm entry
+    //Otherwise, we set the theme, showNext, and jump into the bpm entry
     showNext();
 }
+setTheme(myTheme);
+     
+
+
 //We add an event listener for the bpm entry (On key up).
 //This lets us update our speed mods automatically, without having to use a button to confirm
 $( "#bpmEntry" ).keyup(function() {
@@ -90,6 +102,14 @@ $( "#bpmEntry" ).keyup(function() {
 
 });
 });
+
+
+function setTheme(myTheme) {
+    window.localStorage.setItem("theme", myTheme);
+    document.documentElement.className = myTheme;
+    return myTheme;
+}
+
 //We set up our canvas
 function setUpDisplay(){
     $("#noReadSet").fadeOut(500);
@@ -138,6 +158,7 @@ function resetDivs(){
     $("#bottomReset").fadeOut(500);
     introNoCookie()
 }
+
 //This clears our numbers for the BPM entry screen
 function removeNumbers(){
 document.getElementById("speedMod").innerHTML = "x-.--";
@@ -159,7 +180,7 @@ function introYesCookie(){
     setUpDisplay();
     }
 //Here, we check for our recalled bpm cookie and if we don't have one, we clear everything
-function checkCookie() {
+function checkBpmCookie() {
     var recalledBpm = window.localStorage.getItem("myBpm");
     if (recalledBpm != null) {
         maxSpeed = recalledBpm;
@@ -171,15 +192,29 @@ function checkCookie() {
     }
 }
 
-//This clears local storage. We call this when someone resets their read speed.
+function checkThemeCookie() {
+    var savedTheme = window.localStorage.getItem("theme");
+    if (savedTheme != null) {
+        myTheme = savedTheme;
+         return true;
+    } 
+    else {
+        clearAll();
+        return false;
+    }
+}
+
+//This clears our stored BPM but NOT our theme. We call this when someone resets
 function clearAll(){
-window.localStorage.clear();
+window.localStorage.removeItem('myBpm');
 };
-//We get our cookie and return our saved bpm.
+/*
     function getCookie() {
         var savedBpm = window.localStorage.getItem("myBpm");
-        return savedBpm;
+        var myTheme = window.localStorage.getItem("theme");
+        return {savedBpm, myTheme};
 };
+*/
 //We pull the number entered in the bpmEntry field and set it to our var
 function getSongBpm() {
     songBpm = document.getElementById("bpmEntry").value;
